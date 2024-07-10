@@ -6,7 +6,6 @@
 void inputArray(int array[], int N);
 void printArray(int array[], int N);
 void insertionSort(int array[], int N);
-void swap(int* a, int* b);
 
 int main(void) {
 	int N;
@@ -23,15 +22,15 @@ int main(void) {
 }
 
 void insertionSort(int array[], int N) {
-	int index;
+	int key;
 	for (int i = 1; i < N; i++) {
-		index = i;
-		for (int j = i - 1; j >= 0; j--) {
-			if (array[index] < array[j]) {
-				swap(&array[index], &array[j]);
-			}
-			index--;
+		key = array[i];
+		int j = i - 1;
+		while (j >= 0 && array[j] > key) {
+			array[j + 1] = array[j];
+			j = j - 1;
 		}
+		array[j + 1] = key;
 	}
 }
 
@@ -46,11 +45,4 @@ void printArray(int array[], int N) {
 	for (int i = 0; i < N; i++)
 		printf("%d ", array[i]);
 	printf("\n");
-}
-
-void swap(int* a, int* b) {
-	int temp;
-	temp = *a;
-	*a = *b;
-	*b = temp;
 }
