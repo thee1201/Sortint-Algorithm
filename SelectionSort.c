@@ -48,7 +48,7 @@ void selectionSort(int array[], int N) {
 }
 
 void printArray(int array[], int N) {
-	printf("\nSelection Srot Array: ");
+	printf("\nSelection Sort Array: ");
 	for (int i = 0; i < N; i++)
 		printf("%d ", array[i]);
 	printf("\n");
